@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مركز النجم الكوري لصيانة السيارات | الإسكندرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-main: #060b14;
+      --bg-card: #0d1626;
+      --border: rgba(56, 189, 248, 0.2);
+      --accent-cyan: #06b6d4;
+      --accent-blue: #2563eb;
+      --accent-amber: #f59e0b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12), transparent 35%),
+        radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.08), transparent 35%),
+        linear-gradient(180deg, #060b14 0%, #091120 100%);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(6, 11, 20, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: block;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      display: block;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-cyan);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(13, 22, 38, 0.92), rgba(9, 17, 32, 0.92));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .kicker {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.14);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4.2vw, 3.1rem);
+      font-weight: 900;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .hero-highlight {
+      color: var(--accent-cyan);
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(6, 182, 212, 0.28);
+    }
+
+    .btn-whatsapp {
+      background: #16a34a;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.25);
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .side-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .info-row {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(6, 11, 20, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .info-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .mgmt-sub {
+      display: block;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+
+    .brand-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .brand-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-2px);
+    }
+
+    .brand-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      margin-bottom: 4px;
+    }
+
+    .brand-models {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .service-cat {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .service-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid rgba(148, 163, 184, 0.14);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .calc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(6, 11, 20, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .calc-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.28);
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: #060b14;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent-cyan);
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .hours-table th,
+    .hours-table td {
+      text-align: right;
+      padding: 10px 8px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      font-size: 0.92rem;
+    }
+
+    .hours-table th {
+      color: var(--accent-cyan);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .floating-actions {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 95;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .float-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.25rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.07);
+    }
+
+    .float-wa {
+      background: #16a34a;
+    }
+
+    .float-call {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      place-items: center;
+      z-index: 200;
+      padding: 20px;
+    }
+
+    .modal-backdrop.show {
+      display: grid;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .booking-grid,
+      .loc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-card,
+      .panel,
+      .side-box {
+        padding: 20px;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a href="#top" class="brand">
+        <div class="brand-badge">★</div>
+        <div>
+          <span class="brand-title">مركز النجم الكوري</span>
+          <span class="brand-sub">لصيانة السيارات • الإسكندرية</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#brands">السيارات</a>
+        <a href="#services">الخدمات</a>
+        <a href="#booking">المدة والحجز</a>
+        <a href="#location">الموقع والمواعيد</a>
+      </nav>
+
+      <div class="status-pill" id="liveStatus">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">جاري التحقق...</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <span class="kicker">تخصص دقيق في السيارات الكورية بالإسكندرية</span>
+          <h1>
+            مركز النجم الكوري <span class="hero-highlight">لصيانة السيارات</span> بالإسكندرية
+          </h1>
+          <p class="hero-desc">
+            فحص كمبيوتر دقيق، صيانة ميكانيكية متكاملة للمحرك والفتيس، وضبط كهرباء السيارات الكورية بأعلى معايير الدقة والالتزام في سيدي بشر بالإسكندرية.
+          </p>
+          <div class="btn-group">
+            <a href="#booking" class="btn btn-primary">احجز صيانة الآن</a>
+            <a href="https://wa.me/201553399944" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">تواصل عبر واتساب</a>
+            <a href="https://maps.app.goo.gl/KaGsp3rQcYciJcPF6" target="_blank" rel="noopener noreferrer" class="btn btn-outline">فتح الموقع على الخريطة</a>
+          </div>
+        </div>
+
+        <aside class="side-box">
+          <div class="info-row">
+            <span class="info-label">اسم المركز</span>
+            <span class="info-value">مركز النجم الكوري لصيانة السيارات</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">إدارة</span>
+            <span class="info-value">أ / محمد محمد</span>
+            <span class="mgmt-sub">المهندسون: م / رضا ضيف • م / رمضان رضوان</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">العنوان</span>
+            <span class="info-value">سيدي بشر، الإسكندرية</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">رقم الهاتف / واتساب</span>
+            <span class="info-value" dir="ltr">015 53399944</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="brands">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">الماركات الكورية المتخصصة</h2>
+          <p class="section-sub">خبرة عملية في صيانة وإصلاح أشهر الموديلات الكورية</p>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-card">
+            <div class="brand-name">هيونداي (Hyundai)</div>
+            <div class="brand-models">إلنترا، توسان، أكسنت، سوناتا، ماتريكس، كريتا</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">كيا (Kia)</div>
+            <div class="brand-models">سيراتو، سبورتاج، ريو، سول، سورينتو، أوبتيما</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">شيفروليه الكورية</div>
+            <div class="brand-models">أوبترا، لانوس، أفيو، كروز، إبيكا</div>
+          </div>
+          <div class="brand-card">
+            <div class="brand-name">دايو و سانج يونج</div>
+            <div class="brand-models">نوبيرا، لاسيتي، جولييت، تيفولي، كوراندو</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">خدمات مركز النجم الكوري</h2>
+          <p class="section-sub">اختر الفئة المناسبة لعرض الخدمات المتاحة</p>
+        </div>
+
+        <div class="filters" id="categoryFilters">
+          <button class="filter-btn active" data-cat="all">الكل</button>
+          <button class="filter-btn" data-cat="diagnostics">كشف الكمبيوتر</button>
+          <button class="filter-btn" data-cat="engine">المحرك والفتيس</button>
+          <button class="filter-btn" data-cat="electrical">الكهرباء والحساسات</button>
+          <button class="filter-btn" data-cat="periodic">الصيانة الدورية</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">تقدير مدة الصيانة وحجز الموعد</h2>
+          <p class="section-sub">حدد الخدمات المطلوبة لحساب الوقت التقريبي وأرسل طلب الحجز</p>
+        </div>
+
+        <div class="booking-grid">
+          <div class="panel">
+            <h3 style="margin-bottom: 14px; font-size: 1.15rem;">اختر الخدمات المطلوبة</h3>
+            <div id="calcList"></div>
+            <div class="summary-box">
+              <div class="summary-row">
+                <span>المدة التقريبية للصيانة:</span>
+                <span id="totalTime" style="color: var(--accent-amber);">0 دقيقة</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin-bottom: 14px; font-size: 1.15rem;">بيانات حجز الموعد</h3>
+            <form id="bookingForm">
+              <div class="form-group">
+                <label for="customerName">الاسم بالكامل</label>
+                <input type="text" id="customerName" placeholder="اكتب اسمك" required />
+              </div>
+              <div class="form-group">
+                <label for="customerPhone">رقم الهاتف</label>
+                <input type="tel" id="customerPhone" placeholder="01xxxxxxxxx" required />
+              </div>
+              <div class="form-group">
+                <label for="carModel">نوع وموديل السيارة</label>
+                <input type="text" id="carModel" placeholder="مثال: هيونداي إلنترا HD 2018" required />
+              </div>
+              <div class="form-group">
+                <label for="visitDate">الموعد المفضل</label>
+                <input type="date" id="visitDate" required />
+              </div>
+              <div class="form-group">
+                <label for="notes">ملاحظات إضافية</label>
+                <textarea id="notes" rows="2" placeholder="اكتب وصف العطل أو ملاحظتك..."></textarea>
+              </div>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary" style="flex: 1;">تأكيد الحجز</button>
+                <button type="button" id="sendWhatsappBtn" class="btn btn-whatsapp" style="flex: 1;">إرسال عبر واتساب</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">الموقع ومواعيد العمل</h2>
+          <p class="section-sub">تفضل بزيارة مركز النجم الكوري لصيانة السيارات في الإسكندرية</p>
+        </div>
+
+        <div class="loc-grid">
+          <div class="panel">
+            <h3 style="margin-bottom: 10px; font-size: 1.15rem;">العنوان والوصول السريع</h3>
+            <p style="color: var(--text-muted); margin-bottom: 16px;">
+              سيدي بشر، الإسكندرية — يمكنك فتح الموقع مباشرة على خرائط جوجل أو الاتصال بنا لتأكيد الوصول.
+            </p>
+            <div class="btn-group">
+              <a href="https://maps.app.goo.gl/KaGsp3rQcYciJcPF6" target="_blank" rel="noopener noreferrer" class="btn btn-primary">فتح خرائط جوجل</a>
+              <a href="tel:01553399944" class="btn btn-outline">اتصال: 01553399944</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 style="margin-bottom: 6px; font-size: 1.15rem;">جدول مواعيد العمل</h3>
+            <table class="hours-table">
+              <thead>
+                <tr>
+                  <th>الأيام</th>
+                  <th>المواعيد</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>السبت – الخميس</td>
+                  <td>11:00 صباحاً – 10:00 مساءً</td>
+                </tr>
+                <tr>
+                  <td>الجمعة</td>
+                  <td>2:00 ظهراً – 10:00 مساءً</td>
+                </tr>
+                <tr>
+                  <td>الأحد</td>
+                  <td style="color: var(--danger); font-weight: 700;">عطلة</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      جميع الحقوق محفوظة © <span id="yearSpan"></span> مركز النجم الكوري لصيانة السيارات — الإسكندرية | إدارة: أ / محمد محمد • م / رضا ضيف • م / رمضان رضوان
+    </div>
+  </footer>
+
+  <div class="floating-actions">
+    <a href="https://wa.me/201553399944" target="_blank" rel="noopener noreferrer" class="float-btn float-wa" aria-label="واتساب">💬</a>
+    <a href="tel:01553399944" class="float-btn float-call" aria-label="اتصال">📞</a>
+  </div>
+
+  <div class="modal-backdrop" id="confirmModal">
+    <div class="modal-card">
+      <h3 style="margin-bottom: 10px; color: var(--accent-cyan);">تم تسجيل طلب الحجز</h3>
+      <p id="modalSummary" style="color: var(--text-muted); margin-bottom: 18px; white-space: pre-line;"></p>
+      <div class="btn-group">
+        <button type="button" id="closeModalBtn" class="btn btn-primary" style="width: 100%;">إغلاق</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const servicesData = [
+      {
+        id: 'obd',
+        cat: 'diagnostics',
+        catLabel: 'كشف الكمبيوتر',
+        name: 'فحص شامل بالكمبيوتر OBD-II',
+        desc: 'قراءة وتحليل أكواد الأعطال وفحص بيانات الحساسات بدقة.',
+        minutes: 30
+      },
+      {
+        id: 'engine-tune',
+        cat: 'engine',
+        catLabel: 'المحرك والفتيس',
+        name: 'صيانة وضبط أداء المحرك',
+        desc: 'معالجة تقطيع المحرك، ضعف السحب، وتصفية دورة الاحتراق.',
+        minutes: 90
+      },
+      {
+        id: 'gearbox',
+        cat: 'engine',
+        catLabel: 'المحرك والفتيس',
+        name: 'فحص وصيانة الفتيس الأوتوماتيك والمانيوال',
+        desc: 'فحص نقلات السرعة وضبط أداء الفتيس وتغيير زيت الفتيس.',
+        minutes: 90
+      },
+      {
+        id: 'sensors',
+        cat: 'electrical',
+        catLabel: 'الكهرباء والحساسات',
+        name: 'فحص وإصلاح الضفيرة والحساسات',
+        desc: 'اختبار حساسات الكرنك والكامة والشكمان والدينامو والمارش.',
+        minutes: 60
+      },
+      {
+        id: 'periodic-oil',
+        cat: 'periodic',
+        catLabel: 'الصيانة الدورية',
+        name: 'صيانة دورية وتغيير الزيوت والفلاتر',
+        desc: 'تغيير زيت المحرك وفلتر الزيت وفلتر الهواء والبوجيهات.',
+        minutes: 45
+      }
+    ];
+
+    const servicesGrid = document.getElementById('servicesGrid');
+    const calcList = document.getElementById('calcList');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    function renderServices(filter = 'all') {
+      const filtered = filter === 'all'
+        ? servicesData
+        : servicesData.filter((item) => item.cat === filter);
+
+      servicesGrid.innerHTML = filtered.map((s) => `
+        <article class="service-card">
+          <div>
+            <span class="service-cat">${s.catLabel}</span>
+            <h3 class="service-name">${s.name}</h3>
+            <p class="service-desc">${s.desc}</p>
+          </div>
+          <div class="service-meta">
+            <span>المدة التقريبية</span>
+            <span>⏱ ${s.minutes} دقيقة</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function renderCalculator() {
+      calcList.innerHTML = servicesData.map((s) => `
+        <label class="calc-item" for="chk-${s.id}">
+          <div class="calc-left">
+            <input type="checkbox" id="chk-${s.id}" data-minutes="${s.minutes}" data-name="${s.name}" style="width: 18px; height: 18px;" />
+            <div>
+              <div style="font-weight: 700; font-size: 0.95rem;">${s.name}</div>
+            </div>
+          </div>
+          <span style="font-weight: 800; color: var(--accent-cyan);">⏱ ${s.minutes} دقيقة</span>
+        </label>
+      `).join('');
+
+      calcList.querySelectorAll('input[type="checkbox"]').forEach((chk) => {
+        chk.addEventListener('change', updateTotals);
+      });
+    }
+
+    function getSelectedServices() {
+      const selected = [];
+      calcList.querySelectorAll('input[type="checkbox"]:checked').forEach((chk) => {
+        selected.push({
+          name: chk.dataset.name,
+          minutes: Number(chk.dataset.minutes)
+        });
+      });
+      return selected;
+    }
+
+    function updateTotals() {
+      const selected = getSelectedServices();
+      const totalMinutes = selected.reduce((sum, item) => sum + item.minutes, 0);
+      document.getElementById('totalTime').textContent = `${totalMinutes} دقيقة`;
+    }
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderServices(btn.dataset.cat);
+      });
+    });
+
+    function updateLiveStatus() {
+      const now = new Date();
+      const day = now.getDay();
+      const hourDecimal = now.getHours() + now.getMinutes() / 60;
+      const dot = document.getElementById('statusDot');
+      const text = document.getElementById('statusText');
+
+      let isOpen = false;
+      if (day === 0) {
+        isOpen = false;
+      } else if (day === 5) {
+        isOpen = hourDecimal >= 14 && hourDecimal <= 22;
+      } else {
+        isOpen = hourDecimal >= 11 && hourDecimal <= 22;
+      }
+
+      if (isOpen) {
+        dot.style.background = 'var(--success)';
+        text.textContent = 'مفتوح الآن';
+        text.style.color = 'var(--success)';
+      } else {
+        dot.style.background = 'var(--danger)';
+        text.textContent = 'مغلق الآن';
+        text.style.color = 'var(--danger)';
+      }
+    }
+
+    function buildBookingText() {
+      const name = document.getElementById('customerName').value.trim() || 'غير محدد';
+      const phone = document.getElementById('customerPhone').value.trim() || 'غير محدد';
+      const carModel = document.getElementById('carModel').value.trim() || 'غير محدد';
+      const visitDate = document.getElementById('visitDate').value || 'غير محدد';
+      const notes = document.getElementById('notes').value.trim() || 'لا توجد ملاحظات';
+      const selected = getSelectedServices();
+      const servicesText = selected.length
+        ? selected.map((s) => `- ${s.name} (${s.minutes} دقيقة)`).join('\n')
+        : 'لم يتم تحديد خدمات محددة';
+
+      return `مركز النجم الكوري لصيانة السيارات\nالاسم: ${name}\nالهاتف: ${phone}\nالسيارة: ${carModel}\nالموعد: ${visitDate}\nالخدمات:\n${servicesText}\nملاحظات: ${notes}`;
+    }
+
+    const bookingForm = document.getElementById('bookingForm');
+    const confirmModal = document.getElementById('confirmModal');
+    const modalSummary = document.getElementById('modalSummary');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      modalSummary.textContent = buildBookingText();
+      confirmModal.classList.add('show');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      confirmModal.classList.remove('show');
+    });
+
+    confirmModal.addEventListener('click', (e) => {
+      if (e.target === confirmModal) {
+        confirmModal.classList.remove('show');
+      }
+    });
+
+    sendWhatsappBtn.addEventListener('click', () => {
+      const text = encodeURIComponent(buildBookingText());
+      window.open(`https://wa.me/201553399944?text=${text}`, '_blank', 'noopener,noreferrer');
+    });
+
+    document.getElementById('yearSpan').textContent = new Date().getFullYear();
+    renderServices();
+    renderCalculator();
+    updateLiveStatus();
+    setInterval(updateLiveStatus, 60000);
+  </script>
+</body>
+</html>
